@@ -6,12 +6,12 @@ const alyssaRoute = (req, res) => {
     res.send('Hello Alyssa!');
 }
 
-const homeRoute = (req, res) => {
-    res.send('Hello world!');
+const benjaminRoute = (req, res) => {
+    res.send('Benjamin Singleton!');
 }
 
 module.exports = {
     ryanRoute,
     alyssaRoute,
-    homeRoute
+    benjaminRoute
 }
