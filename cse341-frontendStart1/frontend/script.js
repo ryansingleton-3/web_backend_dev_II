@@ -6,7 +6,7 @@ async function apiFetch(url) {
 }
 
 const getData = async () => {
-  const data = await apiFetch('https://cse341-winter24-iizd.onrender.com/professional');
+  const data = await apiFetch('http://localhost:8080/professional');
   displayAllData(data);
 };
 
