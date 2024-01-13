@@ -1,4 +1,3 @@
-const data = require("../models/model");
 const mongodb = require("../db/connect");
 
 const getAllContacts = async (req, res, next) => {
