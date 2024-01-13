@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
-const mongodb = require('../backend/db/connect');
+const mongodb = require('./db/connect');
 
 const cors = require('cors');
 
