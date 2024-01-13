@@ -25,6 +25,7 @@ const initDb = (callback) => {
 
 const getDb = () => {
     if (_db) {
+        console.log(_db)
         return _db;
     }
     throw 'No database found!';
