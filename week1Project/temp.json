@@ -1,0 +1,44 @@
+[
+  {
+      "firstName": "Ryan",
+      "lastName": "Singleton",
+      "email": "ryans@example.com",
+      "favoriteColor": "Navy Blue",
+      "birthday": "1996-10-16"
+  },
+  {
+      "firstName": "Alyssa",
+      "lastName": "Singleton",
+      "email": "alyssas@example.com",
+      "favoriteColor": "Blush Pink",
+      "birthday": "1996-11-18"
+  },
+  {
+      "firstName": "Benjamin",
+      "lastName": "Singleton",
+      "email": "benjamins@example.com",
+      "favoriteColor": "Pink",
+      "birthday": "2019-04-24"
+  },
+  {
+      "firstName": "Emma",
+      "lastName": "Singleton",
+      "email": "emmas@example.com",
+      "favoriteColor": "Pink",
+      "birthday": "2020-08-24"
+  },
+  {
+      "firstName": "Jordan",
+      "lastName": "Singleton",
+      "email": "jordans@example.com",
+      "favoriteColor": "Pink",
+      "birthday": "2021-11-05"
+  },
+  {
+      "firstName": "Esther",
+      "lastName": "Singleton",
+      "email": "esthers@example.com",
+      "favoriteColor": "Pink",
+      "birthday": "2023-10-07"
+  }
+]
