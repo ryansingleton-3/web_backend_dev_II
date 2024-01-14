@@ -46,7 +46,7 @@ const getOneContact = async (req, res, next) => {
 };
 
 const homeRoute = (req, res) => {
-  res.send("Hello Home!");
+  res.send("Ryan Singleton - Home Route!");
 };
 
 module.exports = {
