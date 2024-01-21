@@ -1,11 +1,11 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "My API",
+    "title": "Contacts API",
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "https://cse-341-5p3t.onrender.com/",
   "basePath": "/",
   "schemes": [
     "http"
