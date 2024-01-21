@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "title": "Contacts API",
-    "description": "Description",
+    "description": "This is a simple API application for managing contacts and their information",
     "version": "1.0.0"
   },
-  "host": "https://cse-341-5p3t.onrender.com",
+  "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
     "http"
