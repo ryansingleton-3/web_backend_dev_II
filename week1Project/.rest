@@ -1,0 +1,84 @@
+GET http://localhost:8080/contacts
+
+###
+
+GET http://localhost:8080/contacts/65a2f899b13ff6b43755f66c
+
+###
+
+POST http://localhost:8080/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "janedoe@example.com",
+  "favoriteColor": "green",
+  "birthday": "1992-02-02"
+}
+
+###
+
+###
+
+PUT http://localhost:8080/contacts/65a2f899b13ff6b43755f66c
+Content-Type: application/json
+
+{
+  "firstName": "UpdatedFirstName",
+  "lastName": "UpdatedLastName",
+  "email": "updatedemail@example.com",
+  "favoriteColor": "red",
+  "birthday": "1995-05-05"
+}
+
+###
+
+
+DELETE http://localhost:8080/contacts/65ac792ff8b6558d076333f8
+
+###
+
+// Live Link ---------------------------------------------------------------------
+
+
+GET https://cse-341-5p3t.onrender.com/contacts
+
+###
+
+GET https://cse-341-5p3t.onrender.com/contacts/65a2f899b13ff6b43755f66c
+
+###
+
+POST https://cse-341-5p3t.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Doe",
+  "email": "janedoe@example.com",
+  "favoriteColor": "green",
+  "birthday": "1992-02-02"
+}
+
+###
+
+###
+
+PUT https://cse-341-5p3t.onrender.com/contacts/65a2f899b13ff6b43755f66c
+Content-Type: application/json
+
+{
+  "firstName": "UpdatedFirstName",
+  "lastName": "UpdatedLastName",
+  "email": "updatedemail@example.com",
+  "favoriteColor": "red",
+  "birthday": "1995-05-05"
+}
+
+###
+
+
+DELETE https://cse-341-5p3t.onrender.com/contacts/65ac792ff8b6558d076333f8
+
+###

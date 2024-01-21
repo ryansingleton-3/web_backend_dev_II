@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "https://cse-341-5p3t.onrender.com/",
+  "host": "https://cse-341-5p3t.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
