@@ -1,0 +1,37 @@
+[
+    {
+        "text": "Great experience, highly recommended!",
+        "starRating": 5,
+        "reviewer": "John Doe"
+    },
+    {
+        "text": "The service was a bit slow, but the quality was outstanding.",
+        "starRating": 4,
+        "reviewer": "Jane Smith"
+    },
+    {
+        "text": "Not quite what I expected, but decent overall.",
+        "starRating": 3,
+        "reviewer": "Emily Johnson"
+    },
+    {
+        "text": "Wonderful atmosphere and friendly staff.",
+        "starRating": 5,
+        "reviewer": "Mike Brown"
+    },
+    {
+        "text": "I found it overpriced for the quality provided.",
+        "starRating": 2,
+        "reviewer": "Sarah Davis"
+    },
+    {
+        "text": "It was an okay experience, might give it another try.",
+        "starRating": 3,
+        "reviewer": "Chris Wilson"
+    },
+    {
+        "text": "I loved everything from start to finish!",
+        "starRating": 5,
+        "reviewer": "Alex Taylor"
+    }
+]
