@@ -5,7 +5,7 @@ const doc = {
     title: 'Reviews API',
     description: 'This API allows you to create, read, update, and delete reviews.'
   },
-  host: 'localhost:8080'
+  host: process.env.PORT || 'localhost:8080',
 };
 
 const outputFile = './swagger.json';

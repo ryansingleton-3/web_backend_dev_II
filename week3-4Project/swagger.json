@@ -64,19 +64,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
+                "text": {
                   "example": "any"
                 },
-                "lastName": {
+                "starRating": {
                   "example": "any"
                 },
-                "email": {
-                  "example": "any"
-                },
-                "favoriteColor": {
-                  "example": "any"
-                },
-                "birthday": {
+                "reviewer": {
                   "example": "any"
                 }
               }
