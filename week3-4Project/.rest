@@ -2,17 +2,17 @@ GET http://localhost:8080/reviews
 
 ###
 
-GET http://localhost:8080/reviews/65aee393d03f7a0c0ff5d97f
+GET http://localhost:8080/reviews/65aee393d03f7a0c0ff5d983
 
 ###
 
-POST http://localhost:8080/reviews
+POST http://localhost:8080/reviews/
 Content-Type: application/json
 
 {
-  "text": "What an awesome place!",
+  "text": "Created review text",
   "starRating": 5,
-  "reviewer": "Satisfied Customer"
+  "reviewer": "Created Reviewer"
 }
 
 ###
@@ -38,43 +38,39 @@ DELETE http://localhost:8080/reviews/65b4411251f893c3ae93764b
 // Live Link ---------------------------------------------------------------------
 
 
-GET https://cse-341-5p3t.onrender.com/reviews
+GET https://reviews-ya3k.onrender.com/reviews
 
 ###
 
-GET https://cse-341-5p3t.onrender.com/reviews/65a2f899b13ff6b43755f66c
+GET https://reviews-ya3k.onrender.com/reviews/65aee393d03f7a0c0ff5d983
 
 ###
 
-POST https://cse-341-5p3t.onrender.com/reviews
+POST https://reviews-ya3k.onrender.com/reviews
 Content-Type: application/json
 
 {
-  "firstName": "Jane",
-  "lastName": "Doe",
-  "email": "janedoe@example.com",
-  "favoriteColor": "green",
-  "birthday": "1992-02-02"
+  "text": "Created review text",
+  "starRating": 5,
+  "reviewer": "Created Reviewer"
 }
 
 ###
 
 ###
 
-PUT https://cse-341-5p3t.onrender.com/reviews/65a2f899b13ff6b43755f66c
+PUT https://reviews-ya3k.onrender.com/reviews/65ba6f4203d96ab19e161fbf
 Content-Type: application/json
 
 {
-  "firstName": "UpdatedFirstName",
-  "lastName": "UpdatedLastName",
-  "email": "updatedemail@example.com",
-  "favoriteColor": "red",
-  "birthday": "1995-05-05"
+  "text": "Updated review text",
+  "starRating": 5,
+  "reviewer": "Updated Reviewer"
 }
 
 ###
 
 
-DELETE https://cse-341-5p3t.onrender.com/reviews/65ac792ff8b6558d076333f8
+DELETE https://reviews-ya3k.onrender.com/reviews/65ba6f4203d96ab19e161fbf
 
 ###

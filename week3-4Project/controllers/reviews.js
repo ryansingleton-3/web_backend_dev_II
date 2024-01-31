@@ -36,7 +36,7 @@ const getOneReview = async (req, res, next) => {
   } catch (error) {
     res
       .status(500)
-      .json({ message: "Error accessing the database", error: error });
+      .json({ message: "Error accessing the database: " + error.message });
   }
 };
 
@@ -44,18 +44,28 @@ const create = (req, res) => {
   // #swagger.tags = ['Reviews']
   // #swagger.description = 'Endpoint to create a review'
   // #swagger.summary = 'Create a review'
-  // Validate request
-  if (!req.body.text || !req.body.starRating || !req.body.reviewer) {
-    res.status(400).send({ message: "Content can not be empty!" });
-    return;
+
+  const { text, starRating, reviewer } = req.body;
+
+  // Validation
+  if (!text) {
+    return res.status(400).send({ message: "Text field cannot be empty!" });
+  }
+  if (!starRating) {
+    return res.status(400).send({ message: "Star rating is required!" });
+  }
+  if (!reviewer) {
+    return res.status(400).send({ message: "Reviewer field cannot be empty!" });
+  }
+  if (typeof starRating !== "number" || starRating < 1 || starRating > 5) {
+    return res.status(400).send({
+      message: "Invalid star rating. Must be a number between 1 and 5.",
+    });
   }
 
   // Create a Review
-  const review = new Review({
-    text: req.body.text,
-    starRating: req.body.starRating,
-    reviewer: req.body.reviewer,
-  });
+  const review = new Review({ text, starRating, reviewer });
+
   // Save Review in the database
   review
     .save()
@@ -66,52 +76,10 @@ const create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Review.",
+        message: "Error occurred while creating the Review: " + err.message,
       });
     });
 };
-
-/**
- * @swagger
- * /reviews/{_id}:
- *   put:
- *     summary: Update a review
- *     tags: [Reviews]
- *     parameters:
- *       - in: path
- *         name: _id
- *         required: true
- *         schema:
- *           type: string
- *         description: Unique ID of the review
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               firstName:
- *                 type: string
- *               lastName:
- *                 type: string
- *               email:
- *                 type: string
- *               favoriteColor:
- *                 type: string
- *               birthday:
- *                 type: string
- *     responses:
- *       200:
- *         description: Review updated successfully
- *       400:
- *         description: Bad request
- *       404:
- *         description: Review not found
- *       500:
- *         description: Internal server error
- */
 
 // Update a Review by the id in the request
 const update = (req, res) => {
@@ -119,15 +87,19 @@ const update = (req, res) => {
   // #swagger.description = 'Endpoint to update a review'
   // #swagger.summary = 'Update a review'
 
-  if (!req.body) {
+  const id = req.params._id;
+
+  if (!id) {
     return res.status(400).send({
-      message: "Data to update can not be empty!",
+      message: "Review ID is required.",
     });
   }
-  console.log(req.params._id);
-  console.log(req.body);
 
-  const id = req.params._id;
+  if (!req.body) {
+    return res.status(400).send({
+      message: "Data to update cannot be empty!",
+    });
+  }
 
   Review.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
     .then((data) => {
@@ -135,11 +107,13 @@ const update = (req, res) => {
         res.status(404).send({
           message: `Cannot update Review with id=${id}. Maybe Review was not found!`,
         });
-      } else res.send({ message: "Review was updated successfully." });
+      } else {
+        res.send({ message: "Review was updated successfully." });
+      }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error updating Review with id=" + id,
+        message: "Error updating Review with id=" + id + ": " + err.message,
       });
     });
 };
@@ -151,6 +125,12 @@ const deleteOne = (req, res) => {
   // #swagger.summary = 'Delete a review'
 
   const id = req.params._id;
+
+  if (!id) {
+    return res.status(400).send({
+      message: "Review ID is required.",
+    });
+  }
 
   Review.findByIdAndDelete(id)
     .then((data) => {
@@ -166,7 +146,7 @@ const deleteOne = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Review with id=" + id,
+        message: "Could not delete Review with id=" + id + ": " + err.message,
       });
     });
 };
@@ -183,6 +163,7 @@ const deleteAll = (req, res) => {
       });
     })
     .catch((err) => {
+      console.error("Error deleting reviews: ", err);
       res.status(500).send({
         message:
           err.message || "Some error occurred while removing all reviews.",
@@ -194,7 +175,14 @@ const homeRoute = (req, res) => {
   // #swagger.tags = ['default']
   // #swagger.description = 'Endpoint to get the home route'
   // #swagger.summary = 'Get the home route'
-  res.send("Ryan Singleton - Home Route!");
+
+  try {
+    res.send("Ryan Singleton - Home Route!");
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error accessing the home route", error: error });
+  }
 };
 
 module.exports = {
