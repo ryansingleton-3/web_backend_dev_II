@@ -181,6 +181,26 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }, 
+          {
+            "in": "body",
+            "name": "user",
+            "description": "User object that needs to be updated",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                },
+                "starRating": {
+                  "type": "number"
+                },
+                "reviewer": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ],
         "responses": {
@@ -258,21 +278,19 @@
         "description": "Endpoint to create a user",
         "parameters": [
           {
-            "in": "body",
             "name": "body",
-            "description": "User object that needs to be updated",
-            "required": true,
+            "in": "body",
             "schema": {
               "type": "object",
               "properties": {
                 "fullName": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "githubId": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "url": {
-                  "type": "string"
+                  "example": "any"
                 }
               }
             }
@@ -356,6 +374,26 @@
             "in": "path",
             "required": true,
             "type": "string"
+          }, 
+          {
+            "in": "body",
+            "name": "user",
+            "description": "User object that needs to be updated",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fullName": {
+                  "type": "string"
+                },
+                "githubId": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ],
         "responses": {

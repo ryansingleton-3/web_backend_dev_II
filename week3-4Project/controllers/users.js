@@ -82,6 +82,14 @@ const update = (req, res) => {
   // #swagger.tags = ['Users']
   // #swagger.description = 'Endpoint to update a user'
   // #swagger.summary = 'Update a user'
+  /**
+ * User model
+ * @typedef {object} User
+ * @property {string} fullName.required - Full name of the user
+ * @property {string} githubId.required - GitHub ID of the user
+ * @property {string} url.required - Profile URL of the user
+ */
+
 
   const id = req.params._id;
 
