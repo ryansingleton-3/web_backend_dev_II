@@ -10,7 +10,7 @@ POST http://localhost:8080/contacts
 Content-Type: application/json
 
 {
-  "firstName": "Jane",
+  "firstName": "John",
   "lastName": "Doe",
   "email": "janedoe@example.com",
   "favoriteColor": "green",
@@ -21,7 +21,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:8080/contacts/65a2f899b13ff6b43755f66c
+PUT http://localhost:8080/contacts/65ac7d777f0c99d7df3c7bd1
 Content-Type: application/json
 
 {
@@ -35,7 +35,7 @@ Content-Type: application/json
 ###
 
 
-DELETE http://localhost:8080/contacts/65ac792ff8b6558d076333f8
+DELETE http://localhost:8080/contacts/65ac7d777f0c99d7df3c7bd1
 
 ###
 

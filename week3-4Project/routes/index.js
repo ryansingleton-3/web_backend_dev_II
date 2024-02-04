@@ -3,23 +3,55 @@ const routes = require("express").Router();
 const reviewsController = require("../controllers/reviews");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("../swagger.json");
+const passport = require("passport");
 
+// use the swagger documentation
 routes.use("/api-docs", swaggerUi.serve);
 routes.get("/api-docs", swaggerUi.setup(swaggerDocument));
 
-routes.get("/", cors(), reviewsController.homeRoute);
-routes.get("/reviews", cors(), reviewsController.getAllReviews);
-routes.get("/reviews/:review_id", cors(), reviewsController.getOneReview);
+//home route
+// routes.get("/", cors(), reviewsController.homeRoute);
+routes.get("/", cors(), (req, res) => {
+  res.send(
+    req.session.user !== undefined
+      ? `Logged in as ${req.session.user.fullName}`
+      : "Logged Out"
+  );
+});
 
-// create a review
-routes.post("/reviews", cors(), reviewsController.create);
+routes.get(
+  "/github/callback",
+  passport.authenticate("github", {
+    failureRedirect: "/api-docs",
+    session: false,
+  }),
+  cors(),
+  (req, res) => {
+    req.session.user = req.user;
+    res.redirect("/");
+  }
+);
 
-// update a review
-routes.put("/reviews/:_id", cors(), reviewsController.update);
+// use the reviews routes
+routes.use("/reviews", require("./reviews"));
 
-// delete a review or all reviews
-routes.delete("/reviews/:_id", cors(), reviewsController.deleteOne);
-routes.delete("/reviews", cors(),reviewsController.deleteAll);
+// use the users routes
+routes.use("/users", require("./users"));
+
+routes.get("/login", passport.authenticate("github"), (req, res) => {
+  console.log("logged in");
+  res.redirect("/");
+});
+
+routes.get("/logout", (req, res, next) => {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    } else {
+      console.log("logged out");
+      res.redirect("/");
+    }
+  });
+});
 
 module.exports = routes;
-

@@ -59,7 +59,7 @@ Content-Type: application/json
 
 ###
 
-PUT https://reviews-ya3k.onrender.com/reviews/65ba6f4203d96ab19e161fbf
+PUT https://reviews-ya3k.onrender.com/reviews/65ba760d070f83064dd3e1a8
 Content-Type: application/json
 
 {
@@ -71,6 +71,86 @@ Content-Type: application/json
 ###
 
 
-DELETE https://reviews-ya3k.onrender.com/reviews/65ba6f4203d96ab19e161fbf
+DELETE https://reviews-ya3k.onrender.com/reviews/65ba760d070f83064dd3e1a8
+
+###
+
+
+// Users endpoint ------------------------------------------------------------------------------------------------------------------------------------------
+
+GET http://localhost:8080/users
+
+###
+
+GET http://localhost:8080/users/65aee393d03f7a0c0ff5d983
+
+###
+
+POST http://localhost:8080/users/
+Content-Type: application/json
+
+{
+  "githubId": "1234567980",
+  "fullName": "Created User",
+  "url": "https://github.com/createdUser"
+}
+
+###
+
+###
+
+PUT http://localhost:8080/users/65b4411251f893c3ae93764b
+Content-Type: application/json
+
+{
+  "githubId": "1234567980",
+  "fullName": "Updated User",
+  "url": "https://github.com/updatedUser"
+}
+
+###
+
+
+DELETE http://localhost:8080/users/65b4411251f893c3ae93764b
+
+###
+
+// Live Link ---------------------------------------------------------------------
+
+
+GET https://users-ya3k.onrender.com/users
+
+###
+
+GET https://users-ya3k.onrender.com/users/65aee393d03f7a0c0ff5d983
+
+###
+
+POST https://users-ya3k.onrender.com/users
+Content-Type: application/json
+
+{
+  "githubId": "1234567980",
+  "fullName": "Created User",
+  "url": "https://github.com/createdUser"
+}
+
+###
+
+###
+
+PUT https://users-ya3k.onrender.com/users/65ba760d070f83064dd3e1a8
+Content-Type: application/json
+
+{
+  "githubId": "1234567980",
+  "fullName": "Updated User",
+  "url": "https://github.com/updatedUser"
+}
+
+###
+
+
+DELETE https://users-ya3k.onrender.com/users/65ba760d070f83064dd3e1a8
 
 ###
