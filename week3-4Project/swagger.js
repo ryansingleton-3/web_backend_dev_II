@@ -9,6 +9,7 @@ const doc = {
       "This API allows you to create, read, update, and delete reviews and users.",
   },
   host: render,
+  schemes: ["https"],
 };
 
 const outputFile = "./swagger.json";

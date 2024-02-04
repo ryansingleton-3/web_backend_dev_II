@@ -22,13 +22,16 @@ app.use(passport.initialize());
 app.use(passport.session());
 const corsOptions = {
   origin: [
-    "http://reviews-ya3k.onrender.com",
-    "https://reviews-ya3k.onrender.com",
     "http://localhost:8080",
-  ], 
-  credentials: true, // if your endpoint uses cookies, HTTP authentication, or client-side SSL certificates
-  methods: ["GET", "POST", "PUT", "DELETE"],
+    "https://reviews-ya3k.onrender.com",
+    "http://reviews-ya3k.onrender.com",
+  ],
+  credentials: true, // If your API expects cookies, HTTP authentication, or client-side SSL certificates
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"], 
 };
+
+app.use(cors(corsOptions));
 
 app.use(cors(corsOptions));
 
