@@ -258,19 +258,21 @@
         "description": "Endpoint to create a user",
         "parameters": [
           {
-            "name": "body",
             "in": "body",
+            "name": "body",
+            "description": "User object that needs to be updated",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "fullName": {
-                  "example": "any"
+                  "type": "string"
                 },
                 "githubId": {
-                  "example": "any"
+                  "type": "string"
                 },
                 "url": {
-                  "example": "any"
+                  "type": "string"
                 }
               }
             }
