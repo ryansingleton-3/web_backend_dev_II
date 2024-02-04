@@ -18,6 +18,7 @@ const getOneUser = async (req, res, next) => {
   // #swagger.tags = ['Users']
   // #swagger.description = 'Endpoint to get one user'
   // #swagger.summary = 'Get one user'
+
   const userId = req.params.user_id;
 
   if (!userId) {
@@ -45,28 +46,28 @@ const create = (req, res) => {
   // #swagger.description = 'Endpoint to create a user'
   // #swagger.summary = 'Create a user'
 
-  const { id, fullName, url } = req.body;
+  const { fullName, githubId, url } = req.body;
 
   // Validation
-  if (!id) {
-    return res.status(400).send({ message: "ID field cannot be empty!" });
+  if (!githubId) {
+    return res.status(400).send({ message: "Github ID field cannot be empty!" });
   }
   if (!fullName) {
-    return res.status(400).send({ message: "Star rating is required!" });
+    return res.status(400).send({ message: "Full name is required!" });
   }
   if (!url) {
     return res.status(400).send({ message: "Url field cannot be empty!" });
   }
 
   // Create a User
-  const user = new User({ id, fullName, url });
+  const user = new User({  fullName, githubId, url });
 
   // Save User in the database
   user
     .save()
     .then((data) => {
       res.send(
-        `Success! ${data.user}'s user created with the id: ${data._id}.`
+        `Success! ${data.fullName}'s account created with the id: ${data._id}.`
       );
     })
     .catch((err) => {

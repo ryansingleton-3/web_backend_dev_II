@@ -263,10 +263,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
+                "fullName": {
                   "example": "any"
                 },
-                "fullName": {
+                "githubId": {
                   "example": "any"
                 },
                 "url": {
@@ -310,7 +310,7 @@
         }
       }
     },
-    "/users/{review_id}": {
+    "/users/{user_id}": {
       "get": {
         "tags": [
           "Users"
@@ -319,7 +319,7 @@
         "description": "Endpoint to get one user",
         "parameters": [
           {
-            "name": "review_id",
+            "name": "user_id",
             "in": "path",
             "required": true,
             "type": "string"

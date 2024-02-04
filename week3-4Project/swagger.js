@@ -1,4 +1,6 @@
 const swaggerAutogen = require("swagger-autogen")();
+const local = "localhost:8080";
+const render = "reviews-ya3k.onrender.com";
 
 const doc = {
   info: {
@@ -6,7 +8,7 @@ const doc = {
     description:
       "This API allows you to create, read, update, and delete reviews and users.",
   },
-  host: "reviews-ya3k.onrender.com",
+  host: render,
 };
 
 const outputFile = "./swagger.json";
