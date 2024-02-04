@@ -5,7 +5,7 @@
     "description": "This API allows you to create, read, update, and delete reviews and users.",
     "version": "1.0.0"
   },
-  "host": "https://reviews-ya3k.onrender.com",
+  "host": "reviews-ya3k.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
