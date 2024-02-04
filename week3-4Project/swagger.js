@@ -1,7 +1,7 @@
 const swaggerAutogen = require('swagger-autogen')();
 
 console.log('process.env.PORT', process.env.PORT);
-const host = process.env.PORT == 8080? 'localhost:8080' : 'reviews-ya3k.onrender.com';
+const host = process.env.PORT == 8080? 'localhost:8080' : 'https://reviews-ya3k.onrender.com';
 const doc = {
   info: {
     title: 'Reviews and Users API',
