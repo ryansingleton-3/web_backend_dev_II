@@ -5,7 +5,7 @@ const cors = require("cors");
 const passport = require("passport");
 const session = require("express-session");
 const GitHubStrategy = require("passport-github2").Strategy;
-const User = require('./models/users'); 
+const User = require("./models/users");
 
 dotenv.config();
 const app = express();
@@ -20,11 +20,20 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "http://reviews-ya3k.onrender.com",
+    "https://reviews-ya3k.onrender.com",
+    "http://localhost:8080",
+  ], 
+  credentials: true, // if your endpoint uses cookies, HTTP authentication, or client-side SSL certificates
+  methods: ["GET", "POST", "PUT", "DELETE"],
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use("/", require("./routes"));
-
-
 
 passport.use(
   new GitHubStrategy(
@@ -37,17 +46,14 @@ passport.use(
       try {
         // Search for an existing user by their GitHub ID
         let user = await User.findOne({ githubId: profile.id });
-        
+
         if (user) {
-          
           return done(null, user);
         } else {
-          
           user = await User.create({
             githubId: profile._json.id,
             fullName: profile._json.name,
             url: profile._json.html_url,
-            
           });
 
           return done(null, user);
@@ -58,7 +64,6 @@ passport.use(
     }
   )
 );
-
 
 passport.serializeUser(function (user, done) {
   done(null, user);
