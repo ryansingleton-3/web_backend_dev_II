@@ -9,6 +9,14 @@ routes.get("/:user_id", usersController.getOneUser);
 routes.post("/", isAuthenticated, usersController.create);
 
 // update a user
+/**
+ * @route PUT /users/:_id
+ * @param {string} _id.path.required - the user ID - application/json
+ * @param {object} user.body.required - the user object to update - application/json
+ * @group Users - Operations about user
+ * @returns {object} 200 - An array of user info
+ * @returns {Error}  default - Unexpected error
+ */
 routes.put("/:_id", isAuthenticated, usersController.update);
 
 // delete a user or all users
